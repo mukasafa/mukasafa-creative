@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FALAH Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 🛠️ Dashboard -->
+    <div class="admin-container">
+        <header>
+            <h1>Welcome, Falah!</h1>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <!-- 📤 Form Upload Project -->
+        <section class="admin-section">
+            <h2>Upload New Project</h2>
+            <form id="projectForm" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Project Title" required>
+                <textarea name="description" placeholder="Project Description"></textarea>
+                <select name="category" required>
+                    <option value="design">Graphic Design</option>
+                    <option value="video">Video Production</option>
+                    <option value="photo">Photography</option>
+                </select>
+                <input type="file" name="media" multiple accept="image/*, video/*">
+                <button type="submit">Publish Project</button>
+            </form>
+        </section>
+
+        <!-- 📩 Daftar Kontak Masuk -->
+        <section class="admin-section">
+            <h2>Contact Messages</h2>
+            <div id="contactList" class="contact-list">
+                <!-- Pesan akan di-load via JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+/* Impor font Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ... semua style sebelumnya ... */
+/* ===== VARIABLES ===== */
+:root {
+    --primary-color: #2a2a72;
+    --secondary-color: #ff6b6b;
+    --accent-color: #4ecdc4;
+}
+
+/* ===== BASE STYLES ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.nav-link {
+    transition: color 0.3s !important;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background: var(--secondary-color);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    height: 100vh;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border: 5px solid var(--secondary-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ===== PROJECT CARDS ===== */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.project-card img {
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.65rem;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+}
+
+/* ADMIN STYLE */
+.admin-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.admin-form button {
+    background: #2a2a72;
+    color: white;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-list {
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #hero h1.display-3 {
+        font-size: 2.5rem !important;
+    }
+}
