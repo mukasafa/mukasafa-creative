@@ -58,15 +58,31 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
+#hero .profile-img {
+    width: 300px;
+    /* Ukuran lebih besar */
+    height: auto;
+    /* Mempertahankan rasio aspek asli */
+    object-fit: contain;
+    /* Memastikan gambar tidak terdistorsi */
+    background: transparent;
+    /* Menghapus background */
+    border: none;
+    /* Menghapus border */
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.2));
+    /* Efek bayangan untuk kedalaman */
+    animation: float 3s ease-in-out infinite;
+}
+
 @keyframes float {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-30px) rotate(5deg);
     }
 }
 
