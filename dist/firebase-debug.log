@@ -1,0 +1,51 @@
+[debug] [2025-02-23T09:12:29.813Z] ----------------------------------------------------------------------
+[debug] [2025-02-23T09:12:29.816Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2025-02-23T09:12:29.817Z] CLI Version:   13.31.2
+[debug] [2025-02-23T09:12:29.817Z] Platform:      win32
+[debug] [2025-02-23T09:12:29.817Z] Node Version:  v22.14.0
+[debug] [2025-02-23T09:12:29.818Z] Time:          Sun Feb 23 2025 16:12:29 GMT+0700 (Waktu Indonesia Barat)
+[debug] [2025-02-23T09:12:29.818Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-23T09:12:30.175Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-23T09:12:30.176Z] > authorizing via signed-in user (mukasafacreative@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Falah Portfolio\Frontend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-02-23T09:13:32.473Z] Checked if tokens are valid: true, expires at: 1740304980754
+[debug] [2025-02-23T09:13:32.473Z] Checked if tokens are valid: true, expires at: 1740304980754
+[debug] [2025-02-23T09:13:32.475Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-02-23T09:13:33.457Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-02-23T09:13:33.457Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project mukasafa-creative (mukasafa-creative) 
+[info] 
+=== Hosting Setup
+[debug] [2025-02-23T09:13:41.701Z] Checked if tokens are valid: true, expires at: 1740304980754
+[debug] [2025-02-23T09:13:41.701Z] Checked if tokens are valid: true, expires at: 1740304980754
+[debug] [2025-02-23T09:13:41.701Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mukasafa-creative [none]
+[debug] [2025-02-23T09:13:42.311Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mukasafa-creative 200
+[debug] [2025-02-23T09:13:42.311Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mukasafa-creative {"projectId":"mukasafa-creative","projectNumber":"642545758130","displayName":"mukasafa-creative","name":"projects/mukasafa-creative","resources":{"hostingSite":"mukasafa-creative"},"state":"ACTIVE","etag":"1_810169bb-1a04-4580-8113-48668a5b9732"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

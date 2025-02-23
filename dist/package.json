@@ -1,0 +1,25 @@
+{
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    }
+}
+
+{
+    "name": "mukasafa-creative",
+    "version": "1.0.0",
+    "description": "Mukasafa Creative Website",
+    "main": "index.html",
+    "scripts": {
+        "build": "mkdir -p dist && cp -r *.html js images admin-*.html style.css dist/",
+        "deploy": "firebase deploy"
+    },
+    "keywords": [
+        "website",
+        "portfolio"
+    ],
+    "author": "mukasafa",
+    "license": "ISC"
+}
