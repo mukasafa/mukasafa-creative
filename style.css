@@ -15,6 +15,7 @@ body {
     background: #f8f9fa;
 }
 
+
 /* ===== NAVIGATION ===== */
 .navbar {
     background: rgba(0, 0, 0, 0.8) !important;
@@ -111,6 +112,11 @@ body {
     border-radius: 50%;
 }
 
+/* ADMIN LINK */
+.admin-link {
+    display: none !important;
+}
+
 /* ADMIN STYLE */
 .admin-container {
     max-width: 800px;
@@ -146,6 +152,119 @@ body {
     border: 1px solid #eee;
     padding: 1rem;
     margin-top: 1rem;
+}
+
+/* ===== CONTACT FORM STYLES ===== */
+
+#contact .needs-validation .form-control {
+    border: 1px solid #dee2e6;
+    transition: border-color 0.3s ease;
+}
+
+#contact .needs-validation .form-control:focus {
+    border-color: #2a2a72;
+    box-shadow: 0 0 0 0.25rem rgba(42, 42, 114, 0.25);
+}
+
+/* Loading Spinner */
+#contact .spinner-border {
+    vertical-align: middle;
+    animation: spin 0.75s linear infinite;
+}
+
+/* Modal Confirmation */
+#contact .modal-icon {
+    font-size: 4rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+#contact .modal-icon.success {
+    color: #28a745;
+    animation: iconPop 0.5s ease;
+}
+
+#contact .modal-icon.error {
+    color: #dc3545;
+    animation: iconShake 0.5s ease;
+}
+
+#contact .modal-title {
+    color: #2a2a72;
+    font-weight: 600;
+}
+
+.modal-open {
+    overflow: auto !important;
+}
+
+.modal-backdrop {
+    opacity: 0.5 !important;
+}
+
+/* Animations */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes iconShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Settingan Cookie */
+#cookie-consent {
+    z-index: 1050;
+    background-color: rgba(33, 37, 41, 0.95);
+}
+
+#cookie-consent .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#cookie-consent .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 /* ===== RESPONSIVE ===== */

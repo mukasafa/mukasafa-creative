@@ -15,5 +15,9 @@
         "portfolio"
     ],
     "author": "mukasafa",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "@emailjs/browser": "^4.4.1",
+        "react-toastify": "^11.0.3"
+    }
 }

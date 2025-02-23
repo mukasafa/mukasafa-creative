@@ -14,9 +14,15 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- meta tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 
 <body>
+
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -35,12 +41,13 @@
         </div>
     </nav>
 
+
     <!-- ========== HERO SECTION ========== -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="images/profile.jpg" alt="Muhammad Falah" class="profile-img rounded-circle mb-4">
+                    <img src="images/mukasafamascot1.png" alt="Muhammad Falah" class="profile-img rounded-circle mb-4">
                 </div>
                 <div class="col-md-6">
                     <h1 class="display-3 fw-bold mb-3">Mukasafa CREATIVE GANTENG</h1>
@@ -93,18 +100,30 @@
         <div class="container">
             <h2 class="text-center mb-5">Let's Connect</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <form>
+                <div class="col-md-6 mx-auto">
+                    <form id="contactForm" class="needs-validation" novalidate>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" name="user_name" class="form-control" id="name" placeholder="Your Name"
+                                required>
+                            <div class="invalid-feedback">Please enter your name</div>
                         </div>
+
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email">
+                            <input type="email" name="user_email" class="form-control" id="email"
+                                placeholder="Your Email" required>
+                            <div class="invalid-feedback">Please enter a valid email</div>
                         </div>
+
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            <textarea name="message" class="form-control" id="message" rows="5"
+                                placeholder="Your Message" required></textarea>
+                            <div class="invalid-feedback">Please enter your message</div>
                         </div>
-                        <button class="btn btn-primary">Send Message</button>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <span class="submit-text">Send Message</span>
+                            <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+                        </button>
                     </form>
                 </div>
                 <div class="col-md-6">
@@ -115,6 +134,21 @@
                             <a href="#" class="btn btn-outline-primary"><i class="fab fa-linkedin"></i></a>
                             <a href="#" class="btn btn-outline-danger"><i class="fab fa-instagram"></i></a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Konfirmasi -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center py-4">
+                        <div class="modal-icon success d-none">✓</div>
+                        <div class="modal-icon error d-none">⚠️</div>
+                        <h3 class="modal-title mt-3"></h3>
+                        <p class="modal-message"></p>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -136,11 +170,203 @@
         </p>
     </footer>
 
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="fixed-bottom bg-dark text-white p-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">Kami menggunakan cookies untuk meningkatkan pengalaman pengguna. Apakah Anda
+                        menerima?</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button id="accept-cookies" class="btn btn-success me-2">Terima</button>
+                    <button id="reject-cookies" class="btn btn-danger">Tolak</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Form Email -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Inisialisasi EmailJS dengan Public Key
+        // Inisialisasi EmailJS
+        emailjs.init('kGxsbMLba6OdZ9Csx'); // Public Key Anda
+
+        // Variabel untuk cek status pengiriman
+        let isSubmitting = false;
+
+        // Fungsi notifikasi terpisah
+        function showSuccessNotification() {
+            alert('Success! Pesan terkirim 🎉');
+        }
+
+        function showErrorNotification(message) {
+            alert(`Gagal mengirim: ${message}`);
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'), {
+                backdrop: true,  // Allow closing by clicking outside
+                keyboard: true   // Allow closing with ESC key
+            });
+
+            // Fungsi validasi email
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Fungsi validasi form
+            function validateForm() {
+                let isValid = true;
+
+                // Validasi Nama (tidak boleh kosong)
+                if (nameInput.value.trim() === '') {
+                    showError('Nama harus diisi');
+                    isValid = false;
+                }
+
+                // Validasi Email (format & tidak boleh kosong)
+                if (emailInput.value.trim() === '') {
+                    showError('Email harus diisi');
+                    isValid = false;
+                } else if (!isValidEmail(emailInput.value)) {
+                    showError('Format email tidak valid. Gunakan format: nama@email.com');
+                    isValid = false;
+                }
+
+                // Validasi Pesan (minimal 80 karakter)
+                if (messageInput.value.trim() === '') {
+                    showError('Pesan harus diisi');
+                    isValid = false;
+                } else if (messageInput.value.trim().length < 80) {
+                    showError('Pesan harus minimal 80 karakter');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            // Fungsi menampilkan error modal
+            function showError(message) {
+                const modalEl = document.getElementById('confirmationModal');
+
+                modalEl.querySelector('.modal-title').textContent = 'Validasi Gagal';
+                modalEl.querySelector('.modal-message').textContent = message;
+
+                // Sembunyikan semua ikon
+                modalEl.querySelectorAll('.modal-icon').forEach(icon => {
+                    icon.classList.add('d-none');
+                });
+
+                // Tampilkan ikon error
+                modalEl.querySelector('.modal-icon.error').classList.remove('d-none');
+
+                // Tampilkan modal
+                confirmationModal.show();
+            }
+
+            // Event listener submit form
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Validasi form sebelum submit
+                if (!validateForm()) {
+                    return;
+                }
+
+                // Tampilkan loading
+                submitBtn.disabled = true;
+                submitBtn.querySelector('.spinner-border').classList.remove('d-none');
+
+                try {
+                    const response = await emailjs.sendForm(
+                        'service_ixkuktm', // Service ID EmailJS Anda
+                        'template_zij3kkm', // Template ID EmailJS Anda
+                        e.target
+                    );
+
+                    // Cek status pengiriman
+                    if (response.status === 200) {
+                        const modalEl = document.getElementById('confirmationModal');
+
+                        modalEl.querySelector('.modal-title').textContent = 'Sukses!';
+                        modalEl.querySelector('.modal-message').textContent = 'Pesan Anda berhasil terkirim.';
+
+                        // Sembunyikan semua ikon
+                        modalEl.querySelectorAll('.modal-icon').forEach(icon => {
+                            icon.classList.add('d-none');
+                        });
+
+                        // Tampilkan ikon sukses
+                        modalEl.querySelector('.modal-icon.success').classList.remove('d-none');
+
+                        confirmationModal.show();
+
+                        // Reset form
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Pengiriman email gagal');
+                    }
+                } catch (error) {
+                    console.error('Error Detail:', error);
+                    showError('Gagal mengirim pesan. Silakan coba lagi.');
+                } finally {
+                    // Sembunyikan loading
+                    submitBtn.disabled = false;
+                    submitBtn.querySelector('.spinner-border').classList.add('d-none');
+                }
+            });
+
+            // Validasi real-time saat input
+            nameInput.addEventListener('input', () => {
+                nameInput.setCustomValidity(
+                    nameInput.value.trim() === '' ? 'Nama harus diisi' : ''
+                );
+            });
+
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value.trim() === '') {
+                    emailInput.setCustomValidity('Email harus diisi');
+                } else if (!isValidEmail(emailInput.value)) {
+                    emailInput.setCustomValidity('Format email tidak valid. Gunakan format: nama@email.com');
+                } else {
+                    emailInput.setCustomValidity('');
+                }
+            });
+
+            messageInput.addEventListener('input', () => {
+                if (messageInput.value.trim() === '') {
+                    messageInput.setCustomValidity('Pesan harus diisi');
+                } else if (messageInput.value.trim().length < 80) {
+                    messageInput.setCustomValidity('Pesan harus minimal 80 karakter');
+                } else {
+                    messageInput.setCustomValidity('');
+                }
+            });
+
+            // Tambahkan event listener untuk menutup modal
+            document.getElementById('confirmationModal').addEventListener('hidden.bs.modal', () => {
+                // Pastikan scroll dan interaksi dapat dilakukan kembali
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
 </body>
 
 </html>
