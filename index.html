@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" prefix="og: http://ogp.me/ns#">
 
 <head>
+    <!-- Charset dan Viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Falah - Creative Portfolio</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Muhammad Falah - Creative Professional Portfolio</title>
+    <meta name="title" content="Muhammad Falah - Creative Professional Portfolio">
+    <meta name="description"
+        content="Portofolio profesional Muhammad Falah, menampilkan karya desain kreatif, proyek, dan pengalaman profesional dalam desain grafis dan layanan kreatif.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mukasafa.com/">
+    <meta property="og:title" content="Muhammad Falah - Creative Professional Portfolio">
+    <meta property="og:description"
+        content="Portofolio profesional Muhammad Falah, menampilkan karya desain kreatif, proyek, dan pengalaman profesional dalam desain grafis dan layanan kreatif.">
+    <meta property="og:image" content="https://www.mukasafa.com/images/mukasafamascot1.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mukasafa.com/">
+    <meta property="twitter:title" content="Muhammad Falah - Creative Professional Portfolio">
+    <meta property="twitter:description"
+        content="Portofolio profesional Muhammad Falah, menampilkan karya desain kreatif, proyek, dan pengalaman profesional dalam desain grafis dan layanan kreatif.">
+    <meta property="twitter:image" content="https://www.mukasafa.com/images/mukasafamascot1.png">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.mukasafa.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Falah",
+        "jobTitle": "Creative Professional",
+        "url": "https://www.mukasafa.com/",
+        "image": "https://www.mukasafa.com/images/mukasafamascot1.png",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "XYZ Creative Agency"
+        },
+        "sameAs": [
+            "https://www.behance.net/mukasafa",
+            "https://www.linkedin.com/in/mukasafa",
+            "https://www.instagram.com/mukasafa"
+        ]
+    }
+    </script>
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,159 +71,178 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- meta tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <!-- Tambahan Meta Tags untuk SEO -->
+    <meta name="keywords" content="desain grafis, portofolio kreatif, desainer, creative professional, Muhammad Falah">
+    <meta name="author" content="Muhammad Falah">
 </head>
 
 <body>
-
     <!-- ========== NAVBAR ========== -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">FALAH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- ========== HERO SECTION ========== -->
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="images/mukasafamascot1.png" alt="Muhammad Falah" class="profile-img rounded-circle mb-4">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#" aria-label="Halaman Utama">FALAH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#hero" aria-label="Beranda">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resume" aria-label="Riwayat">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Proyek">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Kontak">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-6">
-                    <h1 class="display-3 fw-bold mb-3">Mukasafa CREATIVE GANTENG</h1>
-                    <p class="lead mb-4">Multidisciplinary Creative Professional</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="#projects" class="btn btn-lg btn-outline-light">View Portfolio</a>
-                        <a href="#contact" class="btn btn-lg btn-warning">Hire Me</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ========== HERO SECTION ========== -->
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="images/mukasafamascot1.png" alt="Muhammad Falah - Creative Professional"
+                            class="profile-img rounded-circle mb-4" loading="lazy">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Experience & Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Senior Creative Designer</h4>
-                    <p class="text-muted">XYZ Creative Agency • 2020-Present</p>
-                    <p>Led visual design projects for international clients</p>
-                </div>
-                <!-- Add more timeline items -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Featured Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <img src="images/profile.jpg" class="img-fluid rounded" alt="Graphic Design Project">
-                        <div class="p-3">
-                            <h5>Branding Package</h5>
-                            <span class="badge bg-primary">Graphic Design</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more project cards -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Let's Connect</h2>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <form id="contactForm" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <input type="text" name="user_name" class="form-control" id="name" placeholder="Your Name"
-                                required>
-                            <div class="invalid-feedback">Please enter your name</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="email" name="user_email" class="form-control" id="email"
-                                placeholder="Your Email" required>
-                            <div class="invalid-feedback">Please enter a valid email</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea name="message" class="form-control" id="message" rows="5"
-                                placeholder="Your Message" required></textarea>
-                            <div class="invalid-feedback">Please enter your message</div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">
-                            <span class="submit-text">Send Message</span>
-                            <span class="spinner-border spinner-border-sm d-none" role="status"></span>
-                        </button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-4 mt-md-0">
-                        <h4>Social Links</h4>
-                        <div class="d-flex gap-3 mt-3">
-                            <a href="#" class="btn btn-outline-dark"><i class="fab fa-behance"></i></a>
-                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="btn btn-outline-danger"><i class="fab fa-instagram"></i></a>
+                    <div class="col-md-6">
+                        <h1 class="display-3 fw-bold mb-3">Mukasafa CREATIVE GANTENG</h1>
+                        <p class="lead mb-4">Multidisciplinary Creative Professional</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="#projects" class="btn btn-lg btn-outline-light" aria-label="Lihat Portofolio">View
+                                Portfolio</a>
+                            <a href="#contact" class="btn btn-lg btn-warning" aria-label="Hubungi Saya">Hire Me</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Modal Konfirmasi -->
-        <div class="modal fade" id="confirmationModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body text-center py-4">
-                        <div class="modal-icon success d-none">✓</div>
-                        <div class="modal-icon error d-none">⚠️</div>
-                        <h3 class="modal-title mt-3"></h3>
-                        <p class="modal-message"></p>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        <!-- Resume Section -->
+        <section id="resume" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Experience & Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Senior Creative Designer</h3>
+                        <p class="text-muted">XYZ Creative Agency • 2020-Present</p>
+                        <p>Led visual design projects for international clients</p>
+                    </div>
+                    <!-- Add more timeline items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Featured Projects</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="project-card">
+                            <img src="images/profile.jpg" class="img-fluid rounded" alt="Proyek Desain Branding"
+                                loading="lazy">
+                            <div class="p-3">
+                                <h3>Branding Package</h3>
+                                <span class="badge bg-primary">Graphic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Let's Connect</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <input type="text" name="user_name" class="form-control" id="name"
+                                    placeholder="Your Name" required aria-label="Nama Anda">
+                                <div class="invalid-feedback">Please enter your name</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="email" name="user_email" class="form-control" id="email"
+                                    placeholder="Your Email" required aria-label="Email Anda">
+                                <div class="invalid-feedback">Please enter a valid email</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <textarea name="message" class="form-control" id="message" rows="5"
+                                    placeholder="Your Message" required aria-label="Pesan Anda"></textarea>
+                                <div class="invalid-feedback">Please enter your message</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100" aria-label="Kirim Pesan">
+                                <span class="submit-text">Send Message</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mt-4 mt-md-0">
+                            <h4>Social Links</h4>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="#" class="btn btn-outline-dark" aria-label="Behance">
+                                    <i class="fab fa-behance" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-danger" aria-label="Instagram">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Konfirmasi -->
+                <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body text-center py-4">
+                                <div class="modal-icon success d-none" aria-hidden="true">✓</div>
+                                <div class="modal-icon error d-none" aria-hidden="true">⚠️</div>
+                                <h3 class="modal-title mt-3" id="confirmationModalLabel"></h3>
+                                <p class="modal-message"></p>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- ========== FOOTER ========== -->
     <footer class="bg-dark text-light py-4">
         <div class="container text-center">
             <p class="mb-2">© 2024 Muhammad Falah. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" class="text-light mx-2"><i class="fab fa-behance"></i></a>
-                <a href="#" class="text-light mx-2"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-light mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-light mx-2" aria-label="Behance">
+                    <i class="fab fa-behance" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="text-light mx-2" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="text-light mx-2" aria-label="Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
             </div>
+            <p class="admin-link mt-2">
+                <a href="admin-login.html">Admin Login</a>
+            </p>
         </div>
-        <p class="admin-link">
-            <a href="admin-login.html">Admin Login</a>
-        </p>
     </footer>
 
     <!-- Cookie Consent -->
@@ -189,82 +264,39 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
-
     <!-- Form Email -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Inisialisasi EmailJS dengan Public Key
-        // Inisialisasi EmailJS
-        emailjs.init('kGxsbMLba6OdZ9Csx'); // Public Key Anda
 
-        // Variabel untuk cek status pengiriman
-        let isSubmitting = false;
-
-        // Fungsi notifikasi terpisah
-        function showSuccessNotification() {
-            alert('Success! Pesan terkirim 🎉');
-        }
-
-        function showErrorNotification(message) {
-            alert(`Gagal mengirim: ${message}`);
-        }
-    </script>
+    <!-- Custom JS untuk Validasi dan Submission -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Konfigurasi EmailJS
+            emailjs.init('kGxsbMLba6OdZ9Csx');
+
+            // Selectors
             const contactForm = document.getElementById('contactForm');
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
             const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const spinnerEl = submitBtn.querySelector('.spinner-border');
             const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'), {
-                backdrop: true,  // Allow closing by clicking outside
-                keyboard: true   // Allow closing with ESC key
+                backdrop: true,
+                keyboard: true
             });
 
-            // Fungsi validasi email
-            function isValidEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
+            // Validasi Email
+            const validateEmail = (email) => {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return emailRegex.test(email.trim());
+            };
 
-            // Fungsi validasi form
-            function validateForm() {
-                let isValid = true;
-
-                // Validasi Nama (tidak boleh kosong)
-                if (nameInput.value.trim() === '') {
-                    showError('Nama harus diisi');
-                    isValid = false;
-                }
-
-                // Validasi Email (format & tidak boleh kosong)
-                if (emailInput.value.trim() === '') {
-                    showError('Email harus diisi');
-                    isValid = false;
-                } else if (!isValidEmail(emailInput.value)) {
-                    showError('Format email tidak valid. Gunakan format: nama@email.com');
-                    isValid = false;
-                }
-
-                // Validasi Pesan (minimal 80 karakter)
-                if (messageInput.value.trim() === '') {
-                    showError('Pesan harus diisi');
-                    isValid = false;
-                } else if (messageInput.value.trim().length < 80) {
-                    showError('Pesan harus minimal 80 karakter');
-                    isValid = false;
-                }
-
-                return isValid;
-            }
-
-            // Fungsi menampilkan error modal
-            function showError(message) {
+            // Tampilkan Pesan Modal
+            const showModalMessage = (type, title, message) => {
                 const modalEl = document.getElementById('confirmationModal');
 
-                modalEl.querySelector('.modal-title').textContent = 'Validasi Gagal';
+                // Atur judul dan pesan
+                modalEl.querySelector('.modal-title').textContent = title;
                 modalEl.querySelector('.modal-message').textContent = message;
 
                 // Sembunyikan semua ikon
@@ -272,49 +304,78 @@
                     icon.classList.add('d-none');
                 });
 
-                // Tampilkan ikon error
-                modalEl.querySelector('.modal-icon.error').classList.remove('d-none');
+                // Tampilkan ikon sesuai tipe
+                const iconEl = modalEl.querySelector(`.modal-icon.${type}`);
+                if (iconEl) {
+                    iconEl.classList.remove('d-none');
+                }
 
                 // Tampilkan modal
                 confirmationModal.show();
-            }
+            };
 
-            // Event listener submit form
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
+            // Validasi Form Keseluruhan
+            const validateForm = () => {
+                let isValid = true;
+                const errors = [];
 
-                // Validasi form sebelum submit
+                // Validasi Nama
+                if (nameInput.value.trim() === '') {
+                    errors.push('Nama harus diisi');
+                    isValid = false;
+                }
+
+                // Validasi Email
+                if (emailInput.value.trim() === '') {
+                    errors.push('Email harus diisi');
+                    isValid = false;
+                } else if (!validateEmail(emailInput.value)) {
+                    errors.push('Format email tidak valid. Gunakan format: nama@email.com');
+                    isValid = false;
+                }
+
+                // Validasi Pesan
+                if (messageInput.value.trim() === '') {
+                    errors.push('Pesan harus diisi');
+                    isValid = false;
+                } else if (messageInput.value.trim().length < 80) {
+                    errors.push('Pesan harus minimal 80 karakter');
+                    isValid = false;
+                }
+
+                // Tampilkan error jika ada
+                if (!isValid) {
+                    showModalMessage('error', 'Validasi Gagal', errors.join('. '));
+                }
+
+                return isValid;
+            };
+
+            // Fungsi Submit Form
+            const submitForm = async (event) => {
+                event.preventDefault();
+
+                // Validasi form
                 if (!validateForm()) {
                     return;
                 }
 
-                // Tampilkan loading
+                // Nonaktifkan tombol dan tampilkan spinner
                 submitBtn.disabled = true;
-                submitBtn.querySelector('.spinner-border').classList.remove('d-none');
+                spinnerEl.classList.remove('d-none');
 
                 try {
+                    // Kirim email menggunakan EmailJS
                     const response = await emailjs.sendForm(
-                        'service_ixkuktm', // Service ID EmailJS Anda
-                        'template_zij3kkm', // Template ID EmailJS Anda
-                        e.target
+                        'service_ixkuktm',    // Service ID
+                        'template_zij3kkm',   // Template ID
+                        contactForm
                     );
 
                     // Cek status pengiriman
                     if (response.status === 200) {
-                        const modalEl = document.getElementById('confirmationModal');
-
-                        modalEl.querySelector('.modal-title').textContent = 'Sukses!';
-                        modalEl.querySelector('.modal-message').textContent = 'Pesan Anda berhasil terkirim.';
-
-                        // Sembunyikan semua ikon
-                        modalEl.querySelectorAll('.modal-icon').forEach(icon => {
-                            icon.classList.add('d-none');
-                        });
-
-                        // Tampilkan ikon sukses
-                        modalEl.querySelector('.modal-icon.success').classList.remove('d-none');
-
-                        confirmationModal.show();
+                        // Tampilkan modal sukses
+                        showModalMessage('success', 'Sukses!', 'Pesan Anda berhasil terkirim.');
 
                         // Reset form
                         contactForm.reset();
@@ -322,51 +383,70 @@
                         throw new Error('Pengiriman email gagal');
                     }
                 } catch (error) {
+                    // Tangani error
                     console.error('Error Detail:', error);
-                    showError('Gagal mengirim pesan. Silakan coba lagi.');
+                    showModalMessage('error', 'Gagal', 'Gagal mengirim pesan. Silakan coba lagi.');
                 } finally {
-                    // Sembunyikan loading
+                    // Aktifkan kembali tombol dan sembunyikan spinner
                     submitBtn.disabled = false;
-                    submitBtn.querySelector('.spinner-border').classList.add('d-none');
+                    spinnerEl.classList.add('d-none');
                 }
+            };
+
+            // Real-time Validasi Input
+            const setupRealTimeValidation = (inputEl, validationFn) => {
+                inputEl.addEventListener('input', () => {
+                    const errorMessage = validationFn(inputEl.value);
+                    inputEl.setCustomValidity(errorMessage);
+                });
+            };
+
+            // Validasi Nama
+            setupRealTimeValidation(nameInput, (value) =>
+                value.trim() === '' ? 'Nama harus diisi' : ''
+            );
+
+            // Validasi Email
+            setupRealTimeValidation(emailInput, (value) => {
+                if (value.trim() === '') return 'Email harus diisi';
+                return !validateEmail(value) ? 'Format email tidak valid' : '';
             });
 
-            // Validasi real-time saat input
-            nameInput.addEventListener('input', () => {
-                nameInput.setCustomValidity(
-                    nameInput.value.trim() === '' ? 'Nama harus diisi' : ''
-                );
+            // Validasi Pesan
+            setupRealTimeValidation(messageInput, (value) => {
+                if (value.trim() === '') return 'Pesan harus diisi';
+                return value.trim().length < 80 ? 'Pesan harus minimal 80 karakter' : '';
             });
 
-            emailInput.addEventListener('input', () => {
-                if (emailInput.value.trim() === '') {
-                    emailInput.setCustomValidity('Email harus diisi');
-                } else if (!isValidEmail(emailInput.value)) {
-                    emailInput.setCustomValidity('Format email tidak valid. Gunakan format: nama@email.com');
-                } else {
-                    emailInput.setCustomValidity('');
-                }
-            });
+            // Tambahkan event listener submit
+            contactForm.addEventListener('submit', submitForm);
 
-            messageInput.addEventListener('input', () => {
-                if (messageInput.value.trim() === '') {
-                    messageInput.setCustomValidity('Pesan harus diisi');
-                } else if (messageInput.value.trim().length < 80) {
-                    messageInput.setCustomValidity('Pesan harus minimal 80 karakter');
-                } else {
-                    messageInput.setCustomValidity('');
-                }
-            });
-
-            // Tambahkan event listener untuk menutup modal
+            // Modal Close Listener
             document.getElementById('confirmationModal').addEventListener('hidden.bs.modal', () => {
-                // Pastikan scroll dan interaksi dapat dilakukan kembali
                 document.body.classList.remove('modal-open');
                 document.body.style.overflow = '';
             });
+
+            // Cookie Consent
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
+            const rejectCookiesBtn = document.getElementById('reject-cookies');
+
+            // Cek status cookie sebelumnya
+            const cookieAccepted = localStorage.getItem('cookieConsent');
+            if (cookieAccepted) {
+                cookieConsent.style.display = 'none';
+            }
+
+            // Event Listener Cookie
+            acceptCookiesBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.style.display = 'none';
+            });
+
+            rejectCookiesBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.style.display = 'none';
+            });
         });
     </script>
-
-</body>
-
-</html>
