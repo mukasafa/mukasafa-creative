@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mukasafa Creative</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="projectstyle.css">
+    <!-- Custom Navbar CSS -->
+    <link rel="stylesheet" href="/navbar.css">
+</head>
+
+<body>
+    <!-- ========== NAVBAR ========== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#" aria-label="Halaman Utama">FALAH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/index.html" aria-label="Beranda">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resume" aria-label="Riwayat">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Page Projects/projects.html"
+                                aria-label="Proyek">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Kontak">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="project-hero">
+        <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/img (1).jpg" class="d-block w-100" alt="Project 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/img (2).jpg" class="d-block w-100" alt="Project 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/img (3).jpg" class="d-block w-100" alt="Project 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/img (4).jpg" class="d-block w-100" alt="Project 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/img (5).jpg" class="d-block w-100" alt="Project 5">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Project Catalog -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4" id="projectGrid">
+                <div class="col-md-6">
+                    <h2>Project Gallery</h2>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown">
+                            Filter by Category
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-filter="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="design">Graphic Design</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="motion">Motion Graphic</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="photo">Photography</a></li>
+                            <li><a class="dropdown-item" href="#" data-filter="video">Videography</a></li>
+                        </ul>
+
+                        <button class="btn btn-outline-secondary" type="button" data-sort="newest">Newest</button>
+                        <button class="btn btn-outline-secondary" type="button" data-sort="oldest">Oldest</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 project-grid">
+                <!-- Project items akan diisi via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Client Testimonials</h2>
+
+            <div class="row g-4 testimoni-list">
+                <!-- Testimoni yang sudah di-approve -->
+                <div class="col-md-4">
+                    <div class="testimoni-card bg-white p-4 shadow">
+                        <div class="rating-stars mb-2">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <p class="mb-3">"Hasil desainnya sangat profesional dan melebihi ekspektasi!"</p>
+                        <h5 class="mb-0">John Doe</h5>
+                        <small class="text-muted">CEO Tech Startup</small>
+                    </div>
+                </div>
+                <!-- Tambahkan lebih banyak testimoni -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tambahkan Ulasan Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h3 class="text-center mb-4">Tambahkan Ulasan</h3>
+
+                            <form id="testimoniForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Nama</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Rating</label>
+                                    <select name="rating" class="form-select" required>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="1">⭐</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Ulasan</label>
+                                    <textarea name="testimonial" class="form-control" rows="4" required></textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="submit-text">Kirim Ulasan</span>
+                                        <span class="spinner-border spinner-border-sm d-none"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4 d-none" id="approvalNotice">
+                        Ulasan Anda akan muncul setelah melalui proses verifikasi
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Navbar JS -->
+    <script src="/navbar.js"></script>
+
+    <script>
+        // EmailJS Init
+        emailjs.init('kGxsbMLba6OdZ9Csx');
+
+        // Testimoni Form Handler
+        document.getElementById('testimoniForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.spinner-border').classList.remove('d-none');
+
+            try {
+                await emailjs.sendForm(
+                    'service_ixkuktm',
+                    'template_zij3kkm',
+                    form,
+                    'kGxsbMLba6OdZ9Csx'
+                );
+
+                form.reset();
+                document.getElementById('approvalNotice').classList.remove('d-none');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Gagal mengirim ulasan');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.spinner-border').classList.add('d-none');
+            }
+        });
+
+        // Project Filter Logic
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                // Implement filter logic
+            });
+        });
+    </script>
+    <script>
+        // Fetch projects dari Strapi API
+        async function loadProjects() {
+            try {
+                const response = await fetch('http://localhost:1337/api/projects');
+                const { data } = await response.json();
+
+                const projectGrid = document.getElementById('projectGrid');
+
+                projectGrid.innerHTML = data.map(project => `
+              <div class="col-md-4">
+                <div class="project-card">
+                  ${project.attributes.video_url ? `
+                    <iframe 
+                      src="${convertToEmbedURL(project.attributes.video_url)}" 
+                      frameborder="0"
+                      allowfullscreen
+                    ></iframe>
+                  ` : `
+                    <img 
+                      src="${project.attributes.cover_image.url}" 
+                      alt="${project.attributes.title}"
+                      class="img-fluid"
+                    >
+                  `}
+                  
+                  <div class="project-info">
+                    <h3>${project.attributes.title}</h3>
+                    <p>${project.attributes.description}</p>
+                    <div class="project-category">
+                      ${project.attributes.category}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `).join('');
+
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
+
+        // Konversi URL YouTube ke embed
+        function convertToEmbedURL(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            const videoId = (match && match[2].length === 11) ? match[2] : null;
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+
+</body>
+
+</html>

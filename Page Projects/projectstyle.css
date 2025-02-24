@@ -1,0 +1,32 @@
+/* Hero Slider */
+.project-hero .carousel-item {
+    height: 600px;
+}
+
+.project-hero img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/* Project Filter */
+.project-filter .nav-link.active {
+    background: #2a2a72;
+    color: white !important;
+}
+
+/* Testimoni Card */
+.testimoni-card {
+    border-left: 4px solid #2a2a72;
+    transition: transform 0.3s;
+}
+
+.testimoni-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Rating Stars */
+.rating-stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,80 @@
+/* Impor font Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ... semua style sebelumnya ... */
+/* ===== VARIABLES ===== */
+:root {
+    --primary-color: #2a2a72;
+    --secondary-color: #ff6b6b;
+    --accent-color: #4ecdc4;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+}
+
+
+/* Gaya dasar untuk navbar */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    /* Semi-transparan */
+    backdrop-filter: blur(10px);
+    /* Efek blur modern */
+    transition: all 0.3s ease;
+    /* Animasi halus */
+}
+
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    /* Warna teks ringan */
+    transition: color 0.3s ease !important;
+    /* Transisi warna halus */
+    margin: 0 10px;
+    /* Spasi antar menu */
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background: var(--secondary-color);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #ffffff;
+    /* Warna putih saat hover/aktif */
+    font-weight: bold;
+    /* Tebal saat aktif */
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    /* Warna brand */
+    font-weight: bold;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #hero h1.display-3 {
+        font-size: 2.5rem !important;
+    }
+}
