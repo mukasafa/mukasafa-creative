@@ -264,21 +264,47 @@
         // Testimoni Form Handler
         document.getElementById('testimoniForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Cegah pengiriman ganda
+            if (isSubmitting) return;
+
             const form = e.target;
             const submitBtn = form.querySelector('button[type="submit"]');
             const spinner = submitBtn.querySelector('.spinner-border');
             const submitText = submitBtn.querySelector('.submit-text');
 
+            // Validasi input
+            const name = form.querySelector('#name').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const testimonial = form.querySelector('#testimonial').value.trim();
+            const rating = form.querySelector('#rating').value;
+
+            // Validasi input
+            if (!name || !email || !testimonial) {
+                alert('Harap isi semua kolom yang wajib diisi.');
+                return;
+            }
+
+            // Set flag pengiriman
+            isSubmitting = true;
             submitBtn.disabled = true;
             spinner.classList.remove('d-none');
             submitText.classList.add('d-none');
 
             try {
-                await emailjs.sendForm(
-                    'service_ixkuktm',
-                    'template_zij3kkm',
-                    form,
-                    'kGxsbMLba6OdZ9Csx'
+                // Persiapkan data yang akan dikirim
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: testimonial,
+                    rating: rating
+                };
+
+                // Kirim email menggunakan EmailJS
+                await emailjs.send(
+                    'service_ixkuktm',  // Service ID
+                    'template_5huduwh', // Template ID
+                    templateParams     // Parameter template
                 );
 
                 form.reset();
@@ -291,6 +317,8 @@
                 console.error('Error:', error);
                 alert('Gagal mengirim ulasan. Silakan coba lagi.');
             } finally {
+                // Reset flag pengiriman
+                isSubmitting = false;
                 submitBtn.disabled = false;
                 spinner.classList.add('d-none');
                 submitText.classList.remove('d-none');
@@ -505,6 +533,9 @@
     </script>
 
     <script>
+        // Flag untuk mencegah pengiriman ganda
+        let isSubmitting = false;
+
         // EmailJS Init
         (function () {
             emailjs.init('kGxsbMLba6OdZ9Csx');
@@ -513,33 +544,84 @@
         // Testimoni Form Handler
         document.getElementById('testimoniForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Cegah pengiriman ganda
+            if (isSubmitting) return;
+
             const form = e.target;
             const submitBtn = form.querySelector('button[type="submit"]');
             const spinner = submitBtn.querySelector('.spinner-border');
             const submitText = submitBtn.querySelector('.submit-text');
 
+            // Validasi form sebelum mengirim
+            const name = form.querySelector('#name').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const testimonial = form.querySelector('#testimonial').value.trim();
+            const rating = form.querySelector('#rating').value;
+
+            // Validasi input
+            if (!name || !email || !testimonial) {
+                alert('Harap isi semua kolom yang wajib diisi.');
+                return;
+            }
+
+            // Validasi email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Format email tidak valid.');
+                return;
+            }
+
+            // Set flag pengiriman
+            isSubmitting = true;
             submitBtn.disabled = true;
             spinner.classList.remove('d-none');
             submitText.classList.add('d-none');
 
             try {
-                await emailjs.sendForm(
-                    'service_ixkuktm',
-                    'template_zij3kkm',
-                    form,
-                    'kGxsbMLba6OdZ9Csx'
+                // Persiapkan data yang akan dikirim
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: testimonial,
+                    rating: rating
+                };
+
+                // Kirim email menggunakan EmailJS
+                await emailjs.send(
+                    'service_ixkuktm',  // Service ID
+                    'template_5huduwh', // Template ID
+                    templateParams     // Parameter template
                 );
 
+                // Reset form
                 form.reset();
+
+                // Tampilkan notifikasi
                 document.getElementById('approvalNotice').classList.remove('d-none');
+
+                // Sembunyikan notifikasi setelah 5 detik
                 setTimeout(() => {
                     document.getElementById('approvalNotice').classList.add('d-none');
                 }, 5000);
 
             } catch (error) {
                 console.error('Error:', error);
-                alert('Gagal mengirim ulasan. Silakan coba lagi.');
+
+                // Pesan error yang lebih spesifik
+                let errorMessage = 'Gagal mengirim ulasan. ';
+                if (error.status === 400) {
+                    errorMessage += 'Periksa kembali data yang Anda masukkan.';
+                } else if (error.status === 429) {
+                    errorMessage += 'Terlalu banyak percobaan. Silakan coba lagi nanti.';
+                } else {
+                    errorMessage += 'Silakan coba lagi.';
+                }
+
+                alert(errorMessage);
             } finally {
+                // Aktifkan kembali tombol submit
+                isSubmitting = false;
                 submitBtn.disabled = false;
                 spinner.classList.add('d-none');
                 submitText.classList.remove('d-none');
