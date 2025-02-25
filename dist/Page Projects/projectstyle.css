@@ -1,0 +1,180 @@
+/* ========== GLOBAL & NAVBAR STYLES ========== */
+body {
+    padding-top: 60px;
+    /* Dikurangi dari 70px menjadi 60px sesuai dengan navbar baru */
+}
+
+/* ========== GLOBAL & NAVBAR STYLES ========== */
+body {
+    padding-top: 56px;
+    /* Sesuaikan dengan tinggi navbar home */
+}
+
+.navbar {
+    background: linear-gradient(45deg, rgba(26, 26, 26, 0.8), rgba(42, 42, 114, 0.8));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    /* Hapus padding vertikal */
+    height: 56px;
+    /* Sesuaikan dengan tinggi navbar home */
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    /* Efek blur pada background */
+    transition: background-color 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    /* Sesuaikan ukuran font */
+    margin-right: 1rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+    /* Padding minimal untuk nav link */
+    line-height: 1.5;
+}
+
+.navbar.scrolled {
+    background: linear-gradient(45deg, rgba(26, 26, 26, 1), rgba(42, 42, 114, 1));
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ========== HERO CAROUSEL STYLES ========== */
+.project-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-hero .carousel-item {
+    height: 600px;
+    position: relative;
+}
+
+.project-hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Carousel Slide Transition */
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item-next {
+    transform: translateX(100%);
+}
+
+.carousel-item-prev {
+    transform: translateX(-100%);
+}
+
+.carousel-item.active {
+    transform: translateX(0);
+}
+
+/* Carousel Caption Styles */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ========== PROJECT GRID STYLES ========== */
+.project-item .card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-item .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-item .badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+/* ========== TESTIMONI STYLES ========== */
+.testimoni-card {
+    border-left: 4px solid #2a2a72;
+    transition: transform 0.3s ease;
+}
+
+.testimoni-card:hover {
+    transform: translateY(-5px);
+}
+
+.rating-stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+/* ========== PROJECT FILTER STYLES ========== */
+.project-filter .nav-link.active {
+    background: #2a2a72;
+    color: white !important;
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 768px) {
+    .project-hero .carousel-item {
+        height: 400px;
+    }
+
+    .carousel-caption {
+        padding: 10px;
+    }
+
+    .carousel-caption h2 {
+        font-size: 1.5rem;
+    }
+}
