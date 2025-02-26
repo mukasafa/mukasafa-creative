@@ -8,10 +8,10 @@
 
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="projectstyle.css">
-    <!-- Custom Navbar CSS -->
-    <link rel="stylesheet" href="navbar.css">
+
 </head>
 
 <body>
@@ -306,6 +306,7 @@
                     'template_5huduwh', // Template ID
                     templateParams     // Parameter template
                 );
+
 
                 form.reset();
                 document.getElementById('approvalNotice').classList.remove('d-none');
@@ -854,6 +855,43 @@
                 });
         });
     </script>
+    <!-- tentang NAVBAR -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            const navbar = document.querySelector('.navbar');
+
+            navbarCollapse.classList.add('collapse-transition');
+
+            function closeMenu() {
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            }
+
+            document.addEventListener('click', function (event) {
+                const isClickInside = navbar.contains(event.target);
+                if (!isClickInside && navbarCollapse.classList.contains('show')) {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('scroll', function () {
+                closeMenu();
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    closeMenu();
+                });
+            });
+        });
+
+
+    </script>
+    <!-- TUTUP NAVBAR SCRIPT -->
 </body>
 
 </html>

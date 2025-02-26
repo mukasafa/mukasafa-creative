@@ -17,30 +17,183 @@ body {
 
 
 /* ===== NAVIGATION ===== */
+
+/* ===== NAVBAR STYLES ===== */
+
+/* Base navbar styling */
 .navbar {
     background: rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(10px);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+/* Brand/logo styling */
+.navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Navbar toggler (hamburger) styling */
+.navbar-toggler {
+    border: none;
+    padding: 8px;
+    transition: transform 0.3s ease;
+    outline: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+    transform: rotate(90deg);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Nav links styling */
+.navbar-nav {
+    margin-left: auto;
 }
 
 .nav-link {
-    transition: color 0.3s !important;
+    color: white !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
     position: relative;
+    transition: color 0.3s ease !important;
 }
 
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+/* Underline animation for nav links */
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 5px;
+    bottom: 0;
     left: 0;
     background: var(--secondary-color);
-    transition: width 0.3s;
+    transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
     width: 100%;
 }
+
+/* Navbar collapse styling & animations */
+.collapse-transition {
+    transition: height 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.navbar-collapse {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile responsive styling */
+@media (max-width: 991.98px) {
+
+    /* Mobile navbar styling */
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 0 0 10px 10px;
+        padding: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .navbar-collapse.show {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 75vh;
+        /* Batas maksimum tinggi menu */
+    }
+
+    /* Mobile nav links styling */
+    .navbar-nav .nav-link {
+        padding: 12px 16px !important;
+        border-radius: 5px;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav .nav-link::after {
+        display: none;
+        /* Remove underline animation on mobile */
+    }
+
+    /* Animation for nav items */
+    .navbar-nav .nav-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Staggered animation delay for nav items */
+    .navbar-collapse.show .nav-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+}
+
+/* Support for navbar scrolled state */
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.95) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* ===== TUTUP NAVIGATION ===== */
 
 /* ===== HERO SECTION ===== */
 #hero {
@@ -152,7 +305,13 @@ body {
     }
 }
 
-/* ===== TIMELINE ===== */
+/* Tambahkan styling untuk section #about */
+#about {
+    background: #f8f9fa;
+    padding: 80px 0;
+}
+
+/* Jika Anda masih ingin mempertahankan styling timeline untuk elemen lain */
 .timeline {
     border-left: 3px solid var(--primary-color);
     padding-left: 2rem;
@@ -174,10 +333,157 @@ body {
     border-radius: 50%;
 }
 
+/* Style untuk icon-box di section about */
+#about .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#about .icon-box i {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#about .d-flex:hover .icon-box {
+    background: var(--primary-color);
+}
+
+#about .d-flex:hover .icon-box i {
+    color: #fff;
+}
+
+#about h5 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#about p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* Jika ingin menambahkan animasi seperti pada hero section */
+#about .img-fluid {
+    animation: float 3s ease-in-out infinite;
+    border-radius: 10px;
+    box-shadow: none;
+    /* menghilangkan shadow */
+    background: transparent;
+}
+
 /* ADMIN LINK */
 .admin-link {
     display: none !important;
 }
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+}
+
+/* Animasi untuk tombol Selengkapnya */
+.btn-animated {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* Efek hover dengan gradien dan scale */
+.btn-animated:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(42, 42, 114, 0.4);
+}
+
+/* Efek pulse untuk menarik perhatian */
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(42, 42, 114, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(42, 42, 114, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(42, 42, 114, 0);
+    }
+}
+
+/* Efek ripple saat hover */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn-ripple:hover:after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Efek arrow yang bergerak */
+.btn-arrow-move {
+    transition: all 0.3s ease;
+}
+
+.btn-arrow-move i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-arrow-move:hover i {
+    transform: translateX(5px);
+}
+
+/* TUTUP BAGIAN ABOUT */
 
 /* ADMIN STYLE */
 .admin-container {

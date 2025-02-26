@@ -89,7 +89,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#hero" aria-label="Beranda">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#resume" aria-label="Riwayat">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about" aria-label="Tentang">Tentang</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Proyek">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Kontak">Contact</a></li>
                     </ul>
@@ -120,17 +120,59 @@
             </div>
         </section>
 
-        <!-- Resume Section -->
-        <section id="resume" class="py-5">
+        <!-- About Section -->
+        <section id="about" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-5">Experience & Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Senior Creative Designer</h3>
-                        <p class="text-muted">XYZ Creative Agency • 2020-Present</p>
-                        <p>Led visual design projects for international clients</p>
+                <h2 class="text-center mb-5">Tentang Mukasafa Creative</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="images/mukasafamascot1.png" alt="Mukasafa Creative" class="img-fluid rounded mb-4">
                     </div>
-                    <!-- Add more timeline items -->
+                    <div class="col-md-6">
+                        <h3>Tentang Mukasafa Creative</h3>
+                        <p class="mb-4">
+                            Mukasafa Creative merupakan agensi kreatif yang membantu anda dalam menghadirkan konten
+                            visual berkualitas tinggi untuk kebutuhan personal maupun bisnis anda.
+                        </p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-paint-brush fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Desain Grafis Profesional</h5>
+                                <p>Kami menyediakan jasa desain grafis, logo, branding, dan media cetak dengan kualitas
+                                    premium.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-film fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Motion Editing & Videografi</h5>
+                                <p>Tim kami ahli dalam pembuatan video komersial, animasi 2D/3D, dan sequence title yang
+                                    menarik.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-camera fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Fotografi Komersial</h5>
+                                <p>Kami menawarkan layanan fotografi produk dan komersial dengan hasil yang profesional.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Selengkapnya dengan Animasi -->
+                        <div class="text-center mt-4">
+                            <a href="/Page About/about.html"
+                                class="btn btn-primary btn-lg btn-animated btn-pulse btn-arrow-move">
+                                Selengkapnya <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,6 +369,52 @@
 
     <!-- Form Email -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- tentang NAVBAR -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elemen-elemen yang diperlukan
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            const navbar = document.querySelector('.navbar');
+
+            // Tambahkan class untuk animasi ke .navbar-collapse
+            navbarCollapse.classList.add('collapse-transition');
+
+            // Fungsi untuk menutup menu
+            function closeMenu() {
+                if (navbarCollapse.classList.contains('show')) {
+                    // Gunakan Bootstrap API untuk menutup menu
+                    bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                }
+            }
+
+            // Event listener untuk klik di luar menu
+            document.addEventListener('click', function (event) {
+                const isClickInside = navbar.contains(event.target);
+
+                // Jika klik di luar navbar dan menu sedang terbuka, tutup menu
+                if (!isClickInside && navbarCollapse.classList.contains('show')) {
+                    closeMenu();
+                }
+            });
+
+            // Event listener untuk scroll
+            window.addEventListener('scroll', function () {
+                closeMenu();
+            });
+
+            // Event listener untuk nav links (opsional, untuk menutup menu saat link diklik)
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    closeMenu();
+                });
+            });
+        });
+
+    </script>
+    <!-- TUTUP NAVBAR SCRIPT -->
 
     <!-- Custom JS untuk Validasi dan Submission -->
     <script>
