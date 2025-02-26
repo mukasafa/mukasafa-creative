@@ -1,7 +1,7 @@
-/* ========== GLOBAL & NAVBAR STYLES ========== */
-body {
-    padding-top: 60px;
-    /* Dikurangi dari 70px menjadi 60px sesuai dengan navbar baru */
+:root {
+    --primary-color: #2a2a72;
+    --secondary-color: #ff6b6b;
+    --accent-color: #6c63ff;
 }
 
 /* ========== GLOBAL & NAVBAR STYLES ========== */
@@ -11,89 +11,275 @@ body {
 }
 
 /* AWAL NAVBAR STYLE */
+/* Base navbar styling dengan Glassmorphism Orange */
 .navbar {
-    background: linear-gradient(45deg, rgba(26, 26, 26, 0.8), rgba(42, 42, 114, 0.8));
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 0;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
+    background: rgba(255, 140, 0, 0.2) !important;
+    /* Warna orange transparan */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+    transition: all 0.4s ease;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.1);
+    height: auto;
 }
 
-.navbar .container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
+/* Brand/logo styling */
 .navbar-brand {
-    font-size: 1.8rem;
     color: white !important;
-    letter-spacing: 1px;
-}
-
-.navbar-nav .nav-link {
-    color: white !important;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    margin: 0 0.2rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 10px rgba(255, 140, 0, 0.3);
     position: relative;
-    transition: color 0.3s ease !important;
+    padding: 5px 15px;
+    border-radius: 30px;
 }
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: #fff;
-    transition: width 0.3s ease;
+.navbar-brand:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 140, 0, 0.3);
+    transform: translateY(-2px);
 }
 
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
-}
-
-/* Navbar Scrolled */
-.navbar.scrolled {
-    background: linear-gradient(45deg, rgba(26, 26, 26, 1), rgba(42, 42, 114, 1));
-}
-
-.navbar-collapse {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Navbar Toggler */
+/* Navbar toggler (hamburger) styling dengan animasi */
 .navbar-toggler {
     border: none;
-    padding: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    outline: none !important;
 }
 
+.navbar-toggler:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(10deg);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Hide default toggler icon */
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    display: none;
 }
 
-/* Mobile navbar styling */
+/* Custom hamburger icon */
+.hamburger-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon:before,
+.hamburger-icon:after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon:before {
+    transform: translateY(-8px);
+}
+
+.hamburger-icon:after {
+    transform: translateY(8px);
+}
+
+/* Animasi hamburger ketika active */
+.navbar-toggler[aria-expanded="true"] .hamburger-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon:before {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon:after {
+    transform: rotate(-45deg);
+}
+
+/* Container untuk membuat navbar lebih sesuai dengan gambar referensi */
+.navbar>.container {
+    max-width: 1080px;
+    padding: 0 20px;
+}
+
+/* Nav links styling dengan efek glasmorphism */
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 8px 20px !important;
+    margin: 0 5px;
+    position: relative;
+    border-radius: 30px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+    color: white !important;
+    background: rgba(255, 140, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Animasi pada nav links yang lebih menarik */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link:focus::before,
+.nav-link.active::before {
+    transform: translateX(-50%) scale(1);
+}
+
+/* Hapus underline animation lama */
+.nav-link::after {
+    display: none;
+}
+
+/* Navbar collapse styling & animations */
+.navbar-collapse {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Sesuaikan dengan free trial button dengan tema orange */
+.nav-link.btn-free-trial {
+    background: white;
+    color: #FF8C00 !important;
+    /* Warna orange */
+    padding: 8px 24px !important;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link.btn-free-trial:hover {
+    background: #ffffff;
+    color: #FF8C00 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+}
+
+/* Support untuk navbar scrolled state */
+.navbar.scrolled {
+    background: rgba(255, 140, 0, 0.7) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Mobile responsive styling */
 @media (max-width: 991.98px) {
+
+    /* Mobile navbar styling */
     .navbar-collapse {
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(10px);
-        border-radius: 0 0 10px 10px;
-        padding: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 140, 0, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        margin-top: 15px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
+    .navbar-collapse.show {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        max-height: 80vh;
+    }
+
+    /* Mobile nav links styling */
     .navbar-nav .nav-link {
-        padding: 12px 16px !important;
-        margin: 5px 0;
+        padding: 12px 20px !important;
+        margin: 8px 0;
+        text-align: center;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    /* Staggered animation for nav items */
+    .navbar-nav .nav-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition-delay: 0s;
+    }
+
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Staggered animation delay untuk nav items */
+    .navbar-collapse.show .nav-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    .navbar-collapse.show .nav-item:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    /* Free trial button pada mobile */
+    .nav-link.btn-free-trial {
+        margin: 15px 0 5px;
+        background: white;
     }
 }
-
 
 /* TUTUP NAVBAR STYLING */
 

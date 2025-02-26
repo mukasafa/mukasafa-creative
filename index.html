@@ -84,14 +84,18 @@
                 <a class="navbar-brand fw-bold" href="#" aria-label="Halaman Utama">FALAH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="hamburger-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#hero" aria-label="Beranda">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about" aria-label="Tentang">Tentang</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Proyek">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Page About/about.html"
+                                aria-label="Tentang">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Page Projects/projects.html"
+                                aria-label="Proyek">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Kontak">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link btn-free-trial" href="#contact"
+                                aria-label="Free Trial">Free Trial</a></li>
                     </ul>
                 </div>
             </div>
@@ -101,19 +105,68 @@
     <main>
         <!-- ========== HERO SECTION ========== -->
         <section id="hero" class="d-flex align-items-center">
-            <div class="container text-center">
+            <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="images/mukasafamascot1.png" alt="Muhammad Falah - Creative Professional"
-                            class="profile-img mb-4" loading="lazy">
+                    <div class="col-lg-6 hero-content">
+                        <div class="welcome-badge mb-3">
+                            <span class="thumb-icon">👍</span>
+                            <span class="welcome-text">Welcome to Mukasafa Creative</span>
+                        </div>
+
+                        <h1 class="display-3 fw-bold mb-3">For Creative <br>Solutions and <br>Visual Excellence</h1>
+
+                        <p class="lead mb-4">Menghadirkan solusi visual kreatif berkualitas tinggi untuk kebutuhan
+                            personal dan bisnis Anda.</p>
+
+                        <div class="d-flex gap-3">
+                            <a href="#projects" class="btn btn-primary btn-lg d-flex align-items-center">
+                                Get In Touch <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#projects" class="btn btn-outline-light btn-lg">
+                                See More <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h1 class="display-3 fw-bold mb-3">Mukasafa CREATIVE GANTENG</h1>
-                        <p class="lead mb-4">Multidisciplinary Creative Professional</p>
-                        <div class="d-flex gap-3 justify-content-center">
-                            <a href="#projects" class="btn btn-lg btn-outline-light" aria-label="Lihat Portofolio">View
-                                Portfolio</a>
-                            <a href="#contact" class="btn btn-lg btn-warning" aria-label="Hubungi Saya">Hire Me</a>
+                    <div class="col-lg-6 position-relative">
+                        <div class="hero-image-container">
+                            <div class="hero-bg-shape"></div>
+                            <img src="images/mukasafamascot1.png" alt="Muhammad Falah - Creative Professional"
+                                class="profile-img" loading="lazy">
+
+                            <div class="service-info-box service-box-1">
+                                <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                                <div class="content">
+                                    <h5>Graphic Design</h5>
+                                    <p>Logo & Brand Identity</p>
+                                </div>
+                            </div>
+
+                            <div class="service-info-box service-box-2">
+                                <div class="icon"><i class="fas fa-camera"></i></div>
+                                <div class="content">
+                                    <h5>Photography</h5>
+                                    <p>Product & Commercial</p>
+                                </div>
+                            </div>
+
+                            <div class="service-info-box service-box-3">
+                                <div class="icon"><i class="fas fa-film"></i></div>
+                                <div class="content">
+                                    <h5>Motion Graphics</h5>
+                                    <p>Engaging Animations</p>
+                                </div>
+                            </div>
+
+                            <div class="professional-info-card">
+                                <div class="profile-thumb">
+                                    <img src="images/team1.jpg" alt="Muhammad Falah" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="profile-info">
+                                    <h5>Muhammad Falah</h5>
+                                    <p>Creative Director</p>
+                                </div>
+                                <a href="#contact" class="btn btn-sm btn-dark">Get In Touch</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,6 +430,7 @@
             const navbarToggler = document.querySelector('.navbar-toggler');
             const navbarCollapse = document.querySelector('.navbar-collapse');
             const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
             // Tambahkan class untuk animasi ke .navbar-collapse
             navbarCollapse.classList.add('collapse-transition');
@@ -389,7 +443,7 @@
                 }
             }
 
-            // Event listener untuk klik di luar menu
+            // Event listener untuk klik di luar menu (auto close)
             document.addEventListener('click', function (event) {
                 const isClickInside = navbar.contains(event.target);
 
@@ -399,16 +453,45 @@
                 }
             });
 
-            // Event listener untuk scroll
+            // Event listener untuk scroll (auto close)
             window.addEventListener('scroll', function () {
                 closeMenu();
             });
 
-            // Event listener untuk nav links (opsional, untuk menutup menu saat link diklik)
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            // Event listener untuk nav links (menutup menu saat link diklik)
             navLinks.forEach(link => {
                 link.addEventListener('click', function () {
                     closeMenu();
+                });
+            });
+
+            // Tambah efek pada navbar saat di-scroll
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Efek hover 3D untuk nav links
+            navLinks.forEach(link => {
+                link.addEventListener('mousemove', function (e) {
+                    const rect = link.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+
+                    const dx = (x - xc) / 10;
+                    const dy = (y - yc) / 10;
+
+                    link.style.transform = `perspective(300px) rotateX(${-dy}deg) rotateY(${dx}deg) translateZ(5px)`;
+                });
+
+                link.addEventListener('mouseleave', function () {
+                    link.style.transform = '';
                 });
             });
         });
